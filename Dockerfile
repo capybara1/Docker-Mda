@@ -14,4 +14,6 @@ LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.dockerfile="/Dockerfile"
 RUN set -x; \
     apk add --no-cache dovecot
-ENTRYPOINT ["/usr/sbin/dovecot", "-F"]
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["/usr/sbin/dovecot", "-F"]
