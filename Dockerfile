@@ -13,7 +13,7 @@ LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.build-date="$BUILD_DATE" \
       org.label-schema.dockerfile="/Dockerfile"
 RUN set -x; \
-    apk add --no-cache dovecot
+    apk add --no-cache dovecot-lmtpd
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/usr/sbin/dovecot", "-F"]
